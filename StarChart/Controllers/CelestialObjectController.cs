@@ -89,7 +89,7 @@ namespace StarChart.Controllers
         {
             var celestialObjects = _context.CelestialObjects.Where(e => (e.Id == id) || (e.OrbitedObjectId == id)).ToList();
             if (!celestialObjects.Any())
-                NotFound();
+               return NotFound();
             _context.CelestialObjects.RemoveRange(celestialObjects);
             _context.SaveChanges();
             return NoContent();
